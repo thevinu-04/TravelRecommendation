@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelCo | Contact Us</title>
+    <link rel="stylesheet" href="travel_recommendation.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h2>TravelCo</h2>
+        </div>
+        
+        <div class="nav-links">
+            <a href="travel_recommendation.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="contact_us.html" class="active">Contact Us</a>
+        </div>
+
+    </nav>
+
+    <main class="contact-container">
+        <div class="contact-box">
+            <h1>Get In Touch</h1>
+            <p class="contact-subtitle">Have questions about a destination? Drop us a line and our travel experts will get right back to you.</p>
+            
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="user-name">Name</label>
+                    <input type="text" id="user-name" name="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" name="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-message">Message</label>
+                    <textarea id="user-message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+                </div>
+
+                <button type="submit" id="btn-submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

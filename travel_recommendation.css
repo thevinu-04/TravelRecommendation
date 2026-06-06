@@ -1,0 +1,401 @@
+/* ==========================================================================
+   1. Reset & Global Styles
+   ========================================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: #ffffff;
+    background-color: #0f172a; /* Dark slate fallback color */
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. Navigation Bar
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+    background-color: rgba(15, 23, 42, 0.85); /* Semi-transparent dark background */
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-logo h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #38bdf8; /* Vibrant light blue */
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #38bdf8;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 4px;
+}
+
+/* Search Container Styles */
+.nav-search {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-search input {
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #475569;
+    background-color: rgba(30, 41, 59, 0.8);
+    color: #fff;
+    width: 250px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.nav-search input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+.nav-search button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#btn-search {
+    background-color: #38bdf8;
+    color: #0f172a;
+}
+
+#btn-search:hover {
+    background-color: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+#btn-clear {
+    background-color: #475569;
+    color: #f8fafc;
+}
+
+#btn-clear:hover {
+    background-color: #64748b;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   3. Main Container & Hero Section (Task 3)
+   ========================================================================== */
+.home-container {
+    min-height: 100vh;
+    padding-top: 100px; /* Offset for fixed navbar */
+    background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.85)), 
+                url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 6rem;
+    padding-right: 6rem;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+/* ==========================================================================
+   4. Social Media Floating Panel
+   ========================================================================== */
+.social-media {
+    position: fixed;
+    left: 2rem;
+    bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 999;
+}
+
+.social-media a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #38bdf8;
+}
+
+/* ==========================================================================
+   5. Recommendation Results System (Task 8 & 9)
+   ========================================================================== */
+/* CSS Grid implementation ensuring clear visibility aligned in a single row */
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 5rem;
+}
+
+/* Individual Destination Card Styling */
+.result-card {
+    background-color: rgba(30, 41, 59, 0.7);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.result-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: #38bdf8;
+}
+
+.card-body p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+/* ==========================================================================
+   About Us Page Custom Styling
+   ========================================================================== */
+   .about-us-container {
+    max-width: 1000px;
+    margin: 120px auto 60px auto; /* Margin top clears the fixed navbar */
+    padding: 0 2rem;
+    color: #f8fafc;
+}
+
+.company-info h1 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    margin-bottom: 1.5rem;
+}
+
+.company-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: #cbd5e1;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 3rem 0;
+}
+
+.team-section h2 {
+    font-size: 2rem;
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+.team-intro {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* 3-Column Layout for Team Members */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.team-card {
+    background-color: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+}
+
+.team-card h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.25rem;
+}
+
+.team-card .role {
+    color: #38bdf8;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.team-card .bio {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+/* ==========================================================================
+   Contact Us Page Custom Styling (Task 5)
+   ========================================================================== */
+   .contact-container {
+    min-height: 100vh;
+    padding-top: 120px; /* Space clear of the fixed navbar */
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), 
+                url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+
+.contact-box {
+    background-color: rgba(30, 41, 59, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 550px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.contact-box h1 {
+    font-size: 2.2rem;
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.contact-subtitle {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #475569;
+    background-color: rgba(15, 23, 42, 0.6);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+/* Ensure textarea resize doesn't break boundaries */
+.form-group textarea {
+    resize: vertical;
+}
+
+#btn-submit {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #38bdf8;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+#btn-submit:hover {
+    background-color: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+#btn-submit:active {
+    transform: translateY(0);
+}
